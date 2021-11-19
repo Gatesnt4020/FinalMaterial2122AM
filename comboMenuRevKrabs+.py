@@ -53,9 +53,28 @@ def menuBurger(question,choice,price):
      option = input(question)
      if option == "y":
           option = input(f"Which choice? {choice} ")
-          while option != "Krabby Patty" and option != "Double Krabby Patty" and option != "Triple Krabby Patty":
+          while option != choice[0] and option != choice[1] and option != choice[2]:
                option = input(f"Which choice? {choice} ")
-          
+          if option == choice[0]:
+               total+=price
+          elif option == choice[1]:
+               total+=price
+          elif option == choice[2]:
+               total+=price
+               
+def menuMeal(question,choice,price):
+     total=0
+     option = input(question)
+     if option == "y":
+          option = input(f"Which choice? {choice} ")
+          while option != choice[0] and option != choice[1] and option != choice[2]:
+               option = input(f"Which choice? {choice} ")
+          if option == choice[0]:
+               total+=price
+          elif option == choice[1]:
+               total+=price
+          elif option == choice[2]:
+               total+=price
      
                
           
