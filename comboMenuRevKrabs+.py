@@ -12,7 +12,7 @@ def menuFries(question,choice,size,price):
             for i in choice:
                 print(i)
             option = input("Which choice? ")
-        orderInfo+=(f"\t{choice} ")
+        orderInfo+=(f"\t{option} ")
         if option == choice[0]:
             for i in size:
                 print(i)
@@ -29,7 +29,7 @@ def menuFries(question,choice,size,price):
                 total+=price[2]
             elif option ==size[3]:
                 total+=price[3]
-            orderInfo+=(f"{size}\n")
+            orderInfo+=(f"{option}\n")
         elif option ==  choice[1]:
             option = input("Do you want salty sauce with that? (y/n) ")
             while option != "y" and option != "n":
@@ -51,7 +51,7 @@ def menuDrink(question,choice,size,price):
         option = input(f"Which choice? {choice} ")
         while option != choice[0] and option != choice[1]:
             option = input(f"Which choice? {choice} ")
-        orderInfo+=(f"\t{choice} ")
+        orderInfo+=(f"\t{option} ")
         if option == choice[0]:
             for i in size:
                 print(i)
@@ -68,7 +68,7 @@ def menuDrink(question,choice,size,price):
                 total+=price[2]
             elif option ==size[3]:
                 total+=price[3]
-            orderInfo+=(f"{size}\n")
+            orderInfo+=(f"{option}\n")
         elif option ==  choice[1]:
             total+=price[4]
                
@@ -84,7 +84,7 @@ def menuBurger(question,choice,price):
             for i in choice:
                 print(i)
             option = input(f"Which choice? ")
-        orderInfo+=(f"\t{choice} ")
+        orderInfo+=(f"\t{option} ")
         if option == choice[0]:
             total+=price[0]
             option = input("Would you like sea cheese with that? (y/n) ")
@@ -126,7 +126,7 @@ def menuFoods(question,choice,price):
         option = input("Which choice? ")
         while option != choice[0] and option != choice[1] and option != choice[3] and option != choice[4] and option != choice[5] and option != choice[6]:
             option = input(f"Which choice? {choice} ")
-        orderInfo+=(f"\t{choice}")
+        orderInfo+=(f"\t{option}")
         if option == choice[0]:
             total+=price[0]
         elif option == choice[1]:
