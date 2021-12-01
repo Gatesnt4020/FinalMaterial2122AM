@@ -1,78 +1,137 @@
+orderInfo = "\nOrder1:\n"
+total=0
+orderTotal=0
 def menuFries(question,choice,size,price):
-     total=0
+     global orderInfo
+     global orderTotal
      option = input(question)
      if option == "y":
-          option = input(f"Which choice? {choice} ")
+          for i in choice:
+               print(i)
+          option = input("Which choice? ")
           while option != choice[0] and option != choice[1]:
-               option = input(f"Which choice? {choice} ")
+               for i in choice:
+                    print(i)
+               option = input("Which choice? ")
+          orderInfo+=(f"\t{option} ")
           if option == choice[0]:
-               option = input(f"Which size? {size} ")
+               for i in size:
+                    print(i)
+               option = input("Which size? ")
                while option != [0] and option != [1] and option != [3]:
-                    option = input(f"Which size? {size} ")
+                    for i in size:
+                         print(i)
+                    option = input("Which size? ")
                if option == size[0]:
-                    total+=price[0]
+                    orderTotal+=price[0]
                elif option == size[1]:
-                    total+=price[1]
+                    orderTotal+=price[1]
                elif option == size[2]:
-                    total+=price[2]
+                    orderTotal+=price[2]
                elif option ==size[3]:
-                    total+=price[3]
+                    orderTotal+=price[3]
+               orderInfo+=(f"{option}\n")
           elif option ==  choice[1]:
                option = input("Do you want salty sauce with that? (y/n) ")
                while option != "y" and option != "n":
                     option = input("Do you want salty sauce with that? (y/n) ")
                if option == "y":
-                    total+=price
+                    orderTotal+=price+.5
+                    orderInfo+=(f"w/ salty sauce\n")
                elif option == "n":
-                    total+=price
+                    orderTotal+=price
+                    orderInfo+=(f"w/o salty sauce\n")
                     
 def menuDrink(question,choice,size,price):
-     total=0
+     global orderInfo
+     global orderTotal
      option = input(question)
      if option == "y":
+          for i in choice:
+               print(i)
           option = input(f"Which choice? {choice} ")
           while option != choice[0] and option != choice[1]:
                option = input(f"Which choice? {choice} ")
+          orderInfo+=(f"\t{option} ")
           if option == choice[0]:
-               option = input(f"Which size? {size} ")
-               while option != "Small" and option != "Medium" and option != "Large":
-                    option = input(f"Which size? {size} ")
+               for i in size:
+                    print(i)
+               option = input("Which size? ")
+               while option != size[0] and option != size[1] and option != size[2]:
+                    option = input("Which size? ")
+                    for i in size:
+                         print(i)
                if option == size[0]:
-                    total+=price[0]
+                    orderTotal+=price[0]
                elif option == size[1]:
-                    total+=price[1]
+                    orderTotal+=price[1]
                elif option == size[2]:
-                    total+=price[2]
+                    orderTotal+=price[2]
                elif option ==size[3]:
-                    total+=price[3]
+                    orderTotal+=price[3]
+               orderInfo+=(f"{option}\n")
           elif option ==  choice[1]:
-               total+=price
+               orderTotal+=price[4]
                
 def menuBurger(question,choice,price):
-     total=0
+     global orderTotal
+     global orderInfo
      option = input(question)
      if option == "y":
-          option = input(f"Which choice? {choice} ")
+          for i in choice:
+               print(i)
+          option = input("Which choice? ")
           while option != choice[0] and option != choice[1] and option != choice[2]:
-               option = input(f"Which choice? {choice} ")
+               for i in choice:
+                    print(i)
+               option = input(f"Which choice? ")
+          orderInfo+=(f"\t{option} ")
           if option == choice[0]:
-               total+=price
+               orderTotal+=price[0]
+               option = input("Would you like sea cheese with that? (y/n) ")
+               while option != "y" and option != "n":
+                    option = input("Would you like sea cheese with that? (y/n) ")
+               if option =="y":
+                    orderTotal+=price[3]
+                    orderInfo+=(f"w/ sea cheese\n")
+               else:
+                    orderInfo+=(f"w/o sea cheese\n")
           elif option == choice[1]:
-               total+=price
+               orderTotal+=price[1]
+               option = input("Would you like sea cheese with that? (y/n) ")
+               while option != "y" and option != "n":
+                    option = input("Would you like sea cheese with that? (y/n) ")
+               if option =="y":
+                    orderTotal+=price[3]
+                    orderInfo+=(f"w/ sea cheese\n")
+               else:
+                    orderInfo+=(f"w/o sea cheese\n")
           elif option == choice[2]:
-               total+=price
+               orderTotal+=price[2]
+               option = input("Would you like sea cheese with that? (y/n) ")
+               while option != "y" and option != "n":
+                    option = input("Would you like sea cheese with that? (y/n) ")
+               if option =="y":
+                    orderTotal+=price[3]
+                    orderInfo+=(f"w/ sea cheese\n")
+               else:
+                    orderInfo+=(f"w/o sea cheese\n")
                
-def menuMeal(question,choice,price):
-     total=0
+def menuFoods(question,choice,price):
+     global orderInfo
+     global orderTotal
      option = input(question)
      if option == "y":
-          option = input(f"Which choice? {choice} ")
-          while option != choice[0] and option != choice[1] and option != choice[2]:
+          for i in choice:
+               print(i)
+          option = input("Which choice? ")
+          while option != choice[0] and option != choice[1] and option != choice[3] and option != choice[4] and option != choice[5] and option != choice[6]:
                option = input(f"Which choice? {choice} ")
+          orderInfo+=(f"\t{option}")
           if option == choice[0]:
-               total+=price
+               orderTotal+=price[0]
           elif option == choice[1]:
-               total+=price
+               orderTotal+=price[1]
           elif option == choice[2]:
                total+=price
      
@@ -89,7 +148,6 @@ ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ")
 while ui != "y" and ui != "n":
      ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ")
 if ui == "y":
-     while ui != "Quit":
           ui = input(greeting)
 elif ui == "n":
-     print("Thank you for coming have a nice day")
+     print("Take you for coming have a nice day")
