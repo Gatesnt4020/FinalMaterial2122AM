@@ -76,16 +76,20 @@ def menuMeal(question,choice,price):
           elif option == choice[2]:
                total+=price
      
-               
-          
-     
-     
+greeting = (f"""What would you like to do?
+"Menu" - See what the menu is
+"Order" - Order something from the menu
+"New Order" - Make a new order
+"Edit Order" - Edit an order that has already been made
+"Remove Order" - Remove an order that has already been made
+"Quit" - Finalize your order(s) and leave
+""")
 
 ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ")
 while ui != "y" and ui != "n":
      ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ")
 if ui == "y":
-     while ui != "quit":
-          menuDrink()
+     while ui != "Quit":
+          ui = input(greeting)
 elif ui == "n":
      print("Thank you for coming have a nice day")
