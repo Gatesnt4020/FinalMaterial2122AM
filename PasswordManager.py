@@ -1,8 +1,8 @@
 import random,string
-upper = list(string.ascii_uppercase)
-lower = list(string.ascii_lowercase)
-numbers = list(string.digits)
-symbols = list(string.punctuation)
+upper = string.ascii_uppercase
+lower = string.ascii_lowercase
+numbers = string.digits
+symbols = string.punctuation
 
 inProgram=True
 print("Welcome to the program to help remember all of the passwords in the world")
@@ -23,16 +23,14 @@ while inProgram == True:
 def generate(cap, low, num, sym):
     password = ""
     for i in range(cap):
-        password+=upper[random.randint(0, len(upper)-1)]
+        password+=random.choice(upper)
     for i in range(low):
-        password+=lower[random.randint(0, len(lower)-1)]
+        password+=random.choice(lower)
     for i in range(num):
-        password+=numbers[random.randint(0, len(numbers)-1)]
+        password+=random.choice(numbers)
     for i in range(sym):
-        password+=symbols[random.randint(0, len(symbols)-1)]
-    password = list(password)
-    random.shuffle(password)
-    return "".join(password)
+        password+=random.choice(symbols)
+    return "".join(random.sample(password,len(password)))
 
 ui = input("Do you want to generate a password: ")
 print("Enter quit to stop the program")
