@@ -2,14 +2,13 @@ class Order:
     
     #use order numbers for deleting and editing so its easier
         
-    def addOrder(self,addFood):
-        global orderNumber
+    def __init__(self,addFood):
         self.add = addFood
         
-
+    def __str__(self):
+        return str("You ordered: ")+self.add
         
     def newOrder(self,newFood):
-        global orderNumber
         self.new = newFood
 
 
