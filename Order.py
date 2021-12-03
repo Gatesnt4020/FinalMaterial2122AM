@@ -36,4 +36,8 @@ class Order:
         #delete an item in the list
                 del allPostArchive[i]
                 break
+<<<<<<< HEAD
 """
+=======
+"""
+>>>>>>> 9950d0a46798a102de913738f712acaf0bca8ae5
