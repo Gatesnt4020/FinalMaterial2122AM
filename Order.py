@@ -6,38 +6,11 @@ class Order:
         self.add = addFood
         
     def __str__(self):
-        return str("You ordered: ")+self.add
-        
-    def newOrder(self,newFood):
-        self.new = newFood
-
-
-        
-#    def editOrder(self,editFood):
-#        self.edit = editFood
-#        
-#    def removeOrder(self,removeFood):
-#        self.remove = removeFood
-#put in the actual program because it  easier to edit and remove orders  
+        return str(self.add)+" was added to your order"
 
 
     @staticmethod
     def menuChecker():
-        menu = ["Krabby Patty","Double Krabby Patty","Triple Krabby Patty","Seafoam Soda","Kelp Shake","Coral Bits","Kelp Rings","Krabby Meal", "Double Krabby Meal","Triple Krabby Meal","Salty Sea Dog","Footlong","Sailors Surprise","Golden Loaf"]
+        menu = ["krabby patty","double krabby patty","triple krabby patty","seafoam soda","kelp shake","coral bits","kelp rings","krabby meal", "double krabby meal","triple krabby meal","salty sea dog","footlong","sailors surprise","golden loaf"]
         while not (add in menu):
-            add = input("Please ask for something from the menu")
-"""
-    elif user_input=="remove":
-        id=int(input("Which post do you want to delete? "))
-        #loop through the list using index numbers(0,1,2,3,etc)
-        for i in range(len(allPostArchive)):
-            #if postwe are on's postId is equal the one we are looking for
-            if allPostArchive[i]==id:
-        #delete an item in the list
-                del allPostArchive[i]
-                break
-<<<<<<< HEAD
-"""
-=======
-"""
->>>>>>> 9950d0a46798a102de913738f712acaf0bca8ae5
+            add = input("What do you want to add ")

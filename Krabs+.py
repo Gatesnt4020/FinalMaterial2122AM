@@ -27,29 +27,29 @@ greeting = (f"""What would you like to do?
 """)
 
 #use ui for sizes because of how the menu is made 
-ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ")
+ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ").lower()
 while ui != "y" and ui != "n":
-     ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ")
+     ui = input("Welcome to the Krusty Krab would you like something today?(y/n) ").lower()
 if ui == "y":
-     while ui !="Quit":
-          ui = input(greeting)
+     while ui !="quit":
+          ui = input(greeting).lower()
           if ui == "Menu":
                showMenu()
-          elif ui == "Order":#use the menuChecker on this 
+          elif ui == "order":#use the menuChecker on this 
                if masterOrder == []:
                     masterOrder.append([])
                #need to access list inside list to be able to add to different list
-               addFood = input("What do you want to add")
+               addFood = input("What do you want to add ").lower()
+               Order.menuChecker
                #look at static method to do this
                food = Order(addFood)#post=Post(username,message)
-               Order.menuChecker
                masterOrder.append(food)
                for i in range(len(menu)):
                     if menu[i] == food:
                          masterPrice.append(menuPrice[i]) 
                     else:     
                          i+=1
-          elif ui == "New order":
+          elif ui == "new order":
                if masterOrder==[]:
                     print("Please order something before adding another order")
                else:
@@ -59,7 +59,7 @@ if ui == "y":
                if masterOrder==[]:
                     print("Please order something before editing an order")
                else:
-                     ui = input("Which order would you like to edit")
+                     ui = input("Which order would you like to edit").lower()
                      while(not ui.isdigit()):
                          ("Which order would you like to edit")
                      for i in range(len(masterOrder)):
@@ -70,15 +70,16 @@ if ui == "y":
                if masterOrder==[]:
                     print("Please order something before removing an order")
                else:
-                     ui = input("Which order would you like to remove")
+                     ui = input("Which order would you like to remove").lower()
+                     for i in masterOrder:
+                          print(i)
                      while(not ui.isdigit()):
-                         ui = input("Which order would you like to remove")
+                         ui = input("Which order would you like to remove").lower()
                      ui = int(ui)
                      for i in range(len(masterOrder)):
                          if masterOrder[i]==ui:
                               del masterOrder[i]
                               break
-          ui = input(greeting)
      #print receipt  here
 elif ui == "n":
      print("Thank you for coming have a nice day")
