@@ -46,6 +46,25 @@ while ui != "Quit":
                 trys-=1
         if trys <= 0:
             exit()
+        inProgram = True
+        while inProgram == True:
+            ui = input(f'''what would you like to do
+1) Generate a password
+2) Make a category
+3) View categories(Defaults included)
+4) Brute force checker(Unfinished)
+5) Exit
+
+''')
+            if ui == "5":
+                inProgram = False
+            elif ui == "1":
+                NewUser.generatePass()
+            elif ui == "3":
+                ui = input(f''''Here are you categories
+''')
+#print folder or print a text file called something like user+category
+
 #make an account.txt to store the users names then use a password.txt and for checking look to see 
 #if (with a for loop) the username and password match
 #check and see if the username and password is there if not automatically subtract 1
