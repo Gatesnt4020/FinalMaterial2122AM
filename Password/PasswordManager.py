@@ -1,17 +1,6 @@
 from NewUser import NewUser
-import io
+import os.path
 ui = ""
-
-def makeChecker(filename):
-    for i in usered:
-        listOfList.append([])
-    with open(filename,"r") as file:
-        #readlines returns a list
-        listOflines= file.readlines()
-    for row in listOflines:
-        for i in range(len(usered)):
-            if usered[i] in row:
-                listOfList[i].append(row)  
 
 print("Need help remembering all of the passwords in the world? This program will save all of the passwords you need for your computer.")
 while ui != "Quit":
@@ -20,50 +9,47 @@ while ui != "Quit":
         NewUser.makeUser()
     elif ui == "login":
         trys = 3
-        while trys != 0:
+        notCorrect = True
+        while trys > 0 and notCorrect:
             usered = []
             listOfList = []
             username = input("Enter a username: ")
-            usered.append(username)
-            password = input("Enter a password: ")
-            usered.append(password)
-            filename = "users.txt"
-            makeChecker(filename)
-            filename = "passes.txt"
-            makeChecker(filename)
-            listOfList = str(listOfList)
-            print(listOfList)
-            usered = str(usered)
-            listOfList = listOfList.replace("[","")
-            listOfList = listOfList.replace("]","")
-            listOfList = listOfList.replace("\\n","")
-            listOfList = listOfList.pop()
-            print(listOfList)
-            with io.StringIO(listOfList) as uname:
-                num = 0
-                wordIndex={}
-                for row in uname:
-                    word = row.strip()
-                    if word not in wordIndex:
-                        wordIndex[word]
-                    num+=1
-            with io.StringIO(usered) as pasd:
-                for row in pasd:
-                    word = row.strip()
-                    if word not in wordIndex:
-                        print("This is the wronge username or password")
-                        trys-=1
-                    else:
-                        print("You have succesfully login in :)")
-        if trys == 0:
+            username = username.replace(" ", "")
+            while username == "":
+                username = input("Enter your username: ")
+            if os.path.exists(f"{username}.txt"):
+                usered.append(username)
+                password = input("Enter a password: ")
+                password = password.replace(" ", "")
+                while password == "":
+                    password = input("Enter your password: ")
+                usered.append(password)
+                #https://stackoverflow.com/questions/24021202/python-compare-a-string-with-a-text-file/24021243 used to grab the string from the text file
+                if open(f"{username}user.txt").read():
+                    x = open(f"{username}user.txt").read()
+                    listOfList.append(x)
+                else:
+                    print("error in the files please try again")
+                if open(f"{username}pass.txt").read():
+                    y = open(f"{username}pass.txt").read()
+                    listOfList.append(y)
+                else:
+                    print("error in the files please try again")
+                if usered == listOfList:
+                    print("congrats you got it right")
+                    notCorrect = False
+                else:
+                    print("You have entered the worng password try again")
+                    trys-=1
+            else:
+                print("You have entered the wrong username")
+                trys-=1
+        if trys <= 0:
             exit()
-file = open(f"{username}.txt","r+")
-file.truncate(0)
-file.close()
 #make an account.txt to store the users names then use a password.txt and for checking look to see 
 #if (with a for loop) the username and password match
 #check and see if the username and password is there if not automatically subtract 1
 #maybe check and see first if their there and if they are then running the for loop
-'''Sources:
-    https://stackoverflow.com/questions/43147534/iterate-over-file-and-get-word-index-from-other-file
+'''Sources not used:
+    https://stackoverflow.com/questions/43147534/iterate-over-file-and-get-word-index-from-other-file   #was going to be use for the login section but wasnt able to figrue it out
     '''
